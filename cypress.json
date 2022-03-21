@@ -4,6 +4,8 @@
         "**/1-getting-started/*",
         "**/2-advanced-examples/*"
     ],
+    
+    "testFiles": "**/3-bdd/cucumbertest.feature",
     "viewportHeight": 1080,
     "viewportWidth": 1920
 }

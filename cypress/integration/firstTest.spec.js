@@ -45,6 +45,14 @@ describe('first test suite', () => {
             .find('input')
     })
 
+    it.only('alternate way to find child using contains', () => {
+        cy.visit('http://localhost:4200/') //Navigate to url in cypress.json baseurl
+        cy.contains('Forms').click()
+        cy.contains('Form Layouts').click()
+
+        cy.contains('nb-card','Horizontal form').find('#inputEmail3').type('ravi@test.com')
+    })
+
     it('alternate way to find child from parent test', () => {
         cy.visit('http://localhost:4200/') //Navigate to url in cypress.json baseurl
         cy.contains('Forms').click()
@@ -66,7 +74,7 @@ describe('first test suite', () => {
         cy.contains('nb-card', 'Using the Grid').find('[for="inputEmail1"]').should('contain', 'Email')
         cy.contains('nb-card', 'Using the Grid').find('[for="inputPassword2"]').should('contain', 'Password')
 
-        //this might fail due to asysnchronous nature
+        //this might fail due to asysnchronous nature of java script
         // const grid=cy.contains('nb-card', 'Using the Grid')
         // grid.find('[for="inputEmail1"]').should('contain', 'Email')
         // grid.find('[for="inputPassword2"]').should('contain', 'Password')
@@ -85,7 +93,7 @@ describe('first test suite', () => {
 
         
     })
-    it.only('Invoke function', () => {
+    it('Invoke function', () => {
         cy.visit('http://localhost:4200/') //Navigate to url in cypress.json baseurl
         cy.contains('Forms').click()
         cy.contains('Form Layouts').click()
